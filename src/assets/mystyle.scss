@@ -1,0 +1,9 @@
+$dark-color: #111822;
+$red-color: #cc073c;
+$white-color: #cfcdd1;
+
+@mixin flexCenter($position) {
+    display: flex;
+    align-items: center;
+    justify-content: $position;
+}

@@ -1,0 +1,27 @@
+<div class="wrapper">
+    <div class="search-bar-container">
+        <input #input (keyup)="getUserInput(input.value)" class="search-bar" type="text" placeholder="Search...">
+        <button class="search-btn" ><i class="fas fa-search"></i></button>
+    </div>
+
+    <div *ngIf="doesDataExist" class="searched">
+        <div class="searched-info" *ngFor="let item of searched.results" >
+            <div *ngIf="item.poster_path" class="searched-image-container">
+                <img  src={{imagePath}}{{item.poster_path}}>
+            </div>
+            <div *ngIf="item.poster_path"  class="searched-desc">
+                <!-- Movies title -->
+                <h2 *ngIf="item.title" [routerLink]="['/movie', item.id]"  class="searched-title" >{{item.title}}</h2>
+                <!-- TV show name -->
+                <h2 *ngIf="item.name" class="searched-title" >{{item.name}}</h2>
+                <p *ngIf="item.first_air_date" class="date" >Year: <span>{{item.first_air_date | slice:0:4}}</span></p>
+                <p *ngIf="item.release_date" class="date" >Year: <span>{{item.release_date | slice:0:4}}</span></p>
+                <p class="vote-average" >Vote average: <span>{{item.vote_average}}</span></p>
+                <p class="language" >Language: <span>{{item.original_language}}</span></p>
+                <button *ngIf="item.title" [routerLink]="['/movie', item.id]"  class="play-btn" ><img src="../../../../assets/img/play.svg">Play</button>
+                <button *ngIf="item.name" [routerLink]="['/tv-show', item.id]"  class="play-btn" ><img src="../../../../assets/img/play.svg">Play</button>
+            </div>
+        </div>
+    </div>
+</div>
+

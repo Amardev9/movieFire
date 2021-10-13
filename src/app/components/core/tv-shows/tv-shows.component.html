@@ -1,0 +1,79 @@
+<app-navbar></app-navbar>
+
+<section *ngIf="doesDataExist" class="movies-section"   >
+    <button (click)="openFilter()" class="filter-btn" >FILTER</button>
+
+    <div class="movies-container"  >
+        <div class="image-container" *ngFor="let movie of movies">
+            <div class="m-img" [routerLink]="['/tv-show', movie.id]" [ngStyle]="{ 'background-image': 'url(' + imagePath + movie.poster_path + ')'}"></div>
+        </div>
+    </div>
+
+    <div class="load-more-container">
+        <div   *ngIf="doesDataExist2"   class="spinner-animation-2">
+            <app-spinner></app-spinner>
+        </div>
+        <button class="load-more" (click)="loadMore()" >Load more</button>
+    </div>
+</section>
+
+<div *ngIf="!doesDataExist"   class="spinner-animation">
+    <app-spinner></app-spinner>
+</div>
+
+
+
+
+
+    <div class="filter-overlay" [class.open] = "isOpen">
+    <div class="filter-close">
+        <i (click)="openFilter()" class="fas fa-times"></i>
+    </div>
+
+    <div class="filter-container">
+        
+        <div class="option-container">
+            <h2 class="option-title" >Sort by:</h2>
+            <p class="filter-option "  [class.active]="isSelected" (click)="sortMovies($event)" [attr.data-value]="'popularity.desc'">Popular</p>
+            <p class="filter-option" [class.active]="isSelected2"  (click)="sortMovies($event)" [attr.data-value]="'vote_count.desc'" >Top rated</p>
+        </div>
+
+        <div class="option-container">
+            <h2 class="option-title" >Genre:</h2>
+            <p class="filter-option" #option (click)="filterGenres($event)"  [attr.data-value]="null">Default</p>
+            <p class="filter-option" #option (click)="filterGenres($event)"  [attr.data-value]="'with_genres=10759'" >Action & Adventure</p>
+            <p class="filter-option" #option (click)="filterGenres($event)"  [attr.data-value]="'with_genres=16'" >Animation</p>
+            <p class="filter-option" #option (click)="filterGenres($event)"  [attr.data-value]="'with_genres=35'" >Comedy</p>
+            <p class="filter-option" #option (click)="filterGenres($event)"  [attr.data-value]="'with_genres=80'" >Crime</p>
+            <p class="filter-option" #option (click)="filterGenres($event)"  [attr.data-value]="'with_genres=99'" >Documentary</p>
+            <p class="filter-option" #option (click)="filterGenres($event)"  [attr.data-value]="'with_genres=18'" >Drama</p>
+            <p class="filter-option" #option (click)="filterGenres($event)"  [attr.data-value]="'with_genres=10751'" >Family</p>
+            <p class="filter-option" #option (click)="filterGenres($event)"  [attr.data-value]="'with_genres=10762'" >Kids</p>
+            <p class="filter-option" #option (click)="filterGenres($event)"  [attr.data-value]="'with_genres=9648'" >Mystery</p>
+            <p class="filter-option" #option (click)="filterGenres($event)"  [attr.data-value]="'with_genres=10763'" >News</p>
+            <p class="filter-option" #option (click)="filterGenres($event)"  [attr.data-value]="'with_genres=10764'" >Reality</p>
+            <p class="filter-option" #option (click)="filterGenres($event)"  [attr.data-value]="'with_genres=10765'" >Sci-Fi & Fantasy</p>
+            <p class="filter-option" #option (click)="filterGenres($event)"  [attr.data-value]="'with_genres=10766'" >Soap</p>
+            <p class="filter-option" #option (click)="filterGenres($event)"  [attr.data-value]="'with_genres=10767'" >Talk</p>
+            <p class="filter-option" #option (click)="filterGenres($event)"  [attr.data-value]="'with_genres=10768'" >War & Politics</p>
+            <p class="filter-option" #option (click)="filterGenres($event)"  [attr.data-value]="'with_genres=37'" >Western</p>
+            
+        </div>
+        <div class="option-container">
+            <h2 class="option-title">Year:</h2>
+            <p class="filter-option" #option2 (click)="filtrerYear($event)" [attr.data-value]="null">Default</p>
+            <p class="filter-option" #option2 (click)="filtrerYear($event)" [attr.data-value]="'first_air_date_year=2021'">2021</p>
+            <p class="filter-option" #option2 (click)="filtrerYear($event)" [attr.data-value]="'first_air_date_year=2020'">2020</p>
+            <p class="filter-option" #option2 (click)="filtrerYear($event)" [attr.data-value]="'first_air_date_year=2019'">2019</p>
+            <p class="filter-option" #option2 (click)="filtrerYear($event)" [attr.data-value]="'first_air_date_year=2018'">2018</p>
+            <p class="filter-option" #option2 (click)="filtrerYear($event)" [attr.data-value]="'first_air_date_year=2017'">2017</p>
+            <p class="filter-option" #option2 (click)="filtrerYear($event)" [attr.data-value]="'first_air_date_year=2016'">2016</p>
+            <p class="filter-option" #option2 (click)="filtrerYear($event)" [attr.data-value]="'first_air_date_year=2015'">2015</p>
+            <p class="filter-option" #option2 (click)="filtrerYear($event)" [attr.data-value]="'first_air_date_year=2014'">2014</p>
+            <p class="filter-option" #option2 (click)="filtrerYear($event)" [attr.data-value]="'first_air_date_year=2013'">2013</p>
+            <p class="filter-option" #option2 (click)="filtrerYear($event)" [attr.data-value]="'first_air_date_year=2012'">2012</p>
+            <p class="filter-option" #option2 (click)="filtrerYear($event)" [attr.data-value]="'first_air_date_year=2011'">2011</p>
+            <p class="filter-option" #option2 (click)="filtrerYear($event)" [attr.data-value]="'first_air_date_year=2010'">2010</p>
+        </div>
+    </div>
+</div>

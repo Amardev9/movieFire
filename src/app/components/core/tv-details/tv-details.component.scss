@@ -1,0 +1,267 @@
+@import "../../../../assets/mystyle.scss";
+.movie{
+    margin: 1rem;
+}
+.flex-center{
+    @include flexCenter(center);
+    width: 100%;
+    height: 100vh;
+}
+
+.resp-container {
+    position: relative;
+    overflow: hidden;
+    padding-top: 56.25%;
+}
+.movie-trailer{
+    background: linear-gradient(90deg,
+    #15202B 30%,
+    lighten(#15202B, 7%) 38%,
+    lighten(#15202B, 7%) 40%,
+    #15202B 48%);
+    background-size: 200% 100%;
+    background-position:  100% 0;
+    animation: load 2s infinite;
+}
+@keyframes load{
+    100%{
+        background-position: -100% 0;
+    }
+}
+.resp-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.movie-info{
+    margin-top: 1rem;
+    .movie-info-name{
+        font-weight: 600;
+        letter-spacing: 1px;
+        color: white;
+    }
+
+    p{
+        margin-top: .3rem;
+        color: #4C5458;
+        .movie-info-data,.imdb{
+            color: $white-color;
+        }
+
+    }
+
+    .flex-wrap{
+        @include flexCenter(flex-start);
+        flex-wrap: wrap;
+
+        span{
+            margin-left: .2rem;
+        }
+    }
+
+    
+}
+
+.trailers{
+    @include flexCenter(flex-start);
+
+    .trailer-button-container{
+        margin-right: 1rem;
+
+        .trailer-btn{
+            background-color: $red-color;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            padding: .5rem 1rem;
+            font: inherit;
+            cursor: pointer;
+            outline: inherit;
+        }    
+    }
+}
+.sm{
+    margin-top: 1rem;
+}
+.lg{
+    display: none;
+}
+.movie-overview-container{
+    margin-top: 1rem;
+
+
+}
+
+.movie-data-name{
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #4C5458;
+    margin-bottom: .5rem;
+}
+.cast-container{
+    margin-top: 1rem;
+
+}
+.profile-image-container{
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+
+.cast-slide{
+    position: relative;
+    width: 70px;
+    height: 105px;
+    background: linear-gradient(120deg,
+    #ddd 30%,
+    #e8e8e8 38%,
+    #e8e8e8 40%,
+    #ddd 48%);
+    background-size: 200% 100%;
+    background-position:  100% 0;
+    animation: load 2s infinite;
+    
+}
+
+.fallback-img{
+    width: 100%;
+    height: 100%;
+    background-image: url(../../../../assets/img/no-image.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+
+.crew{
+    margin: 1rem 0;
+    text-align: center;
+    .crew-col{
+        margin-top: 1rem;
+        h3{
+            font-weight: 600;
+            color: #4C5458;
+            font-size: 1rem;
+        }
+        p{
+            margin-top: .3rem;
+        }
+    }
+}
+
+.trailer-error{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    @include flexCenter(center);
+    color: $red-color;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.reviews-container{
+    margin-top: 1rem;
+
+    .review{
+        margin-top: 1rem;
+        .user-name{
+            font-weight: 600;
+            color: white;
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .user-rating{
+            color: white;
+        }
+
+        .user-review{
+            margin-top: .5rem;
+            line-height: 1.5rem;
+            
+        }
+    }
+}
+
+@media (min-width: 768px){
+    .crew{
+        margin: 2rem 0;
+        @include flexCenter(space-between);
+        align-items: flex-start;
+        text-align: left;
+
+        .crew-col{
+            p{
+                font-size: .8rem;
+            }
+        }
+    }
+
+    .movie-data-name{
+        margin-top: 2rem;
+    }
+}
+@media (min-width: 992px){
+    .movie-details{
+        display: grid;
+        grid-template-columns: 25% 70%;
+        grid-template-rows: auto;
+        justify-content: space-between;
+    }
+
+    .movie{
+        width: 100%;
+        max-width: 800px;
+        margin: 5rem auto 0 auto;
+    }
+
+    .data-container{
+        display: grid;
+        grid-template-columns: 25% 70%;
+        grid-template-rows: auto;
+        justify-content: space-between;
+    }
+
+    .sm{
+       display: none;
+    }
+    .lg{
+        display: flex;
+    }
+
+    
+
+    .movie-image{
+        height: 100%;
+        width: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+    }
+}
+
+@media (min-width: 1100px){
+    .movie{
+        max-width: 1000px;
+    }
+    
+}
+
+@media (min-width: 1200px){
+    .movie{
+        max-width: 1100px;
+    }
+}

@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'swiper/scss';
+@import 'swiper/css/bundle';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;900&display=swap');
+@import './assets/mystyle.scss';
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    color: $white-color;
+    background-color: $dark-color;
+}
+
+// scroll bar style
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background-color: $dark-color;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $red-color; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: $white-color;
+  }
+img{
+    max-width: 100%;
+}

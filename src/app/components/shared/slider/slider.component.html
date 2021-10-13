@@ -1,0 +1,13 @@
+<section class="slider" >
+
+    <h2 class="slider-title" >{{data[0]}}</h2>
+
+
+    <swiper [config]="config">
+        <ng-template swiperSlide class="myslide" *ngFor = "let movie of data[1]?.results" >
+            <div *ngIf="movie.title" [routerLink]="['/movie', movie.id]" class="image-container" [ngStyle]="{ 'background-image': 'url(' + imagePath + movie.poster_path + ')'}"></div>
+            <div *ngIf="movie.name"  [routerLink]="['/tv-show', movie.id]" class="image-container" [ngStyle]="{ 'background-image': 'url(' + imagePath + movie.poster_path + ')'}"></div>
+        </ng-template>
+        
+    </swiper>
+</section>

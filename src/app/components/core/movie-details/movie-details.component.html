@@ -1,0 +1,117 @@
+<app-navbar></app-navbar>
+
+<section *ngIf="doesDataExist" class="movie" >
+    <div  class="movie-details" >
+
+        <div class="grid-col-1">
+            <div class="movie-image" [ngStyle]="{ 'background-image': 'url(' + imagePath + details.poster_path + ')'}"></div>
+    
+        </div>
+    
+        <div  class="grid-col-2">
+            <div class="movie-trailer">
+                <div class="resp-container">
+                    <iframe *ngIf="doesTrailerExist == true" class="resp-iframe" [src]="trailerULR | safe: 'resourceUrl'" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div *ngIf="doesTrailerExist == false" class="trailer-error">
+                        No trailers for this movie, sorry :(
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <div class="data-container">
+        <div *ngIf="doesTrailerExist == true" class="trailers sm">
+            <div class="trailer-button-container" *ngFor='let btn of trailers;let i = index' >
+                <button (click)="playTrailer($event,i)"  class="trailer-btn">{{i + 1}}</button>
+            </div>
+        </div>
+
+        <div class="movie-info">
+            <h2  class="movie-info-name" > {{details.title}}</h2>
+            <p *ngIf="details.release_date" >year: <span class="movie-info-data" > {{details.release_date | slice:0:4 }}</span></p>
+            <p *ngIf="!details.release_date" >year: <span class="movie-info-data" >N/A</span></p>
+
+            <p *ngIf="details.genres.length > 0" class="flex-wrap" >genres: <span class="movie-info-data" *ngFor="let genre of details.genres">{{genre.name}}</span></p>
+            <p *ngIf="details.genres.length == 0" class="flex-wrap" >genres: <span class="movie-info-data">N/A</span></p>
+
+            <p *ngIf="details.runtime" >runtime: <span class="movie-info-data" > {{details.runtime}} min</span></p>
+            <p *ngIf="!details.runtime" >runtime: <span class="movie-info-data" >N/A</span></p>
+
+            <p *ngIf="details.production_countries.length > 0"  >country: <span class="movie-info-data"> {{details.production_countries[0].name}}</span></p>
+            <p *ngIf="details.production_countries.length == 0" >country: <span class="movie-info-data"  >N/A</span></p>
+
+            <p *ngIf="details.spoken_languages.length > 0" >languages: <span class="movie-info-data" > {{details.spoken_languages[0].english_name}}</span></p>
+            <p *ngIf="details.spoken_languages.length == 0" >languages: <span class="movie-info-data" >N/A</span></p>
+
+            <p *ngIf="details.vote_average" >IMDb: <span class="imdb" > {{details.vote_average}}</span></p>
+            <p *ngIf="!details.vote_average" >IMDb: <span class="imdb" >N/A</span></p>
+        </div>
+
+        <div class="movie-overview-container">
+            <div *ngIf="doesTrailerExist == true" class="trailers lg">
+                <div class="trailer-button-container" *ngFor='let btn of trailers;let i = index' >
+                    <button (click)="playTrailer($event,i)"  class="trailer-btn">{{i + 1}}</button>
+                </div>
+            </div>
+
+            <h3 class="movie-data-name" >Plot</h3>
+            <p  *ngIf="details.overview" class="movie-overview" > {{details.overview}}</p>
+            <p  *ngIf="!details.overview" class="movie-overview" > N/A</p>
+
+            <div  *ngIf="cast.length > 0" class="cast-container">
+                <h3 class="movie-data-name" >Cast</h3>
+                <swiper [config]="config">
+                    <ng-template swiperSlide class="cast-slide" *ngFor = "let actor of  cast" >
+                        <div *ngIf="actor.profile_path"  class="profile-image-container" [ngStyle]="{ 'background-image': 'url(' + imagePathProfile + actor.profile_path + ')'}"></div>
+                        <div *ngIf="!actor.profile_path" class="fallback-img"></div>
+                        
+                    </ng-template>
+                    
+                </swiper>
+            </div>
+                <div class="reviews-container">
+                    <h3 class="movie-data-name" >Reviews</h3>
+                    <div *ngIf="doesReviewsExist" class="review-container">
+                        <div  class="review" *ngFor="let review of reviews">
+                            <h4 class="user-name" >{{review.author}}</h4>
+                            <p *ngIf="review.author_details.rating" class="user-rating" >Rating: {{review.author_details.rating}}</p>
+                            <p class="user-review">{{review.content}}</p>
+                        </div>
+                    </div>
+                    <div *ngIf="doesReviewsExist == false" class="no reviews">
+                        There are no reviews yet.
+                    </div>
+                </div>
+                <div class="crew">
+                    <div class="crew-col">
+                        <h3>Directed by</h3>
+                        <p class="crew-name" *ngFor="let person of crew.director" >{{person.name}}</p>
+                        <p *ngIf="crew.director.length == 0" class="crew-name" >N/A</p>
+                    </div>
+                    <div class="crew-col">
+                        <h3>Produced by</h3>
+                        <p class="crew-name" *ngFor="let person  of crew.producer" >{{person.name}}</p>
+                        <p *ngIf="crew.producer.length == 0" class="crew-name" >N/A</p>
+                    </div>
+                    <div class="crew-col">
+                        <h3>Written by</h3>
+                        <p class="crew-name" *ngFor="let person  of crew.writers" >{{person.name}}</p>
+                        <p *ngIf="crew.writers.length == 0" class="crew-name" >N/A</p>
+                    </div>
+                    <div class="crew-col">
+                        <h3>Music by</h3>
+                        <p class="crew-name" *ngFor="let person  of crew.music" >{{person.name}}</p>
+                        <p *ngIf="crew.music.length == 0" class="crew-name" >N/A</p>
+                    </div>
+                </div>
+            
+        </div>
+    </div>
+</section>
+
+
+<div  *ngIf="!doesDataExist" class="flex-center">
+    <app-spinner></app-spinner>
+</div>

@@ -1,0 +1,134 @@
+@import "../../../../assets/mystyle.scss";
+.wrapper{
+    position: relative;
+}
+
+.search-bar-container{
+    margin: 1rem;
+    position: relative;
+    .search-bar{
+        width: 100%;
+        border: 2px solid $red-color;
+        background-color: $dark-color;
+        padding: .5rem;
+        border-radius: 7px;
+        color: white;
+    }
+
+    .search-bar:focus{
+        outline: none;
+    }
+
+    .search-btn{
+        background-color: $red-color;
+        color: inherit;
+        border: none;
+        font: inherit;
+        cursor: pointer;
+        outline: inherit;
+        height: 100%;
+        padding: 0 1rem;
+        position: absolute;
+        top: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        border-top-right-radius: 7px;
+        border-bottom-right-radius: 7px;
+    }
+}
+.loading{
+    text-align: center;
+    @include flexCenter(center);
+    align-items: center;
+    margin: .5rem 0 ;
+}
+.searched{
+    margin-top: -1rem;
+    background-color: rgb(0, 0, 0,0.9);
+    position: absolute;
+    z-index: 70;
+    width: 100%;
+
+    .searched-info{
+        cursor: pointer;
+        margin: 1rem;
+        border-radius: 7px;
+        background-color: $dark-color;
+        @include flexCenter(flex-start);
+        align-items: flex-start;
+
+        .searched-image-container{
+            padding: .5rem;
+            img{
+                max-width: 92px;
+                height: 138px;
+            }
+        }
+
+        .searched-desc{
+            padding: .5rem;
+            .searched-title{
+                font-weight: 600;
+                color: white;
+                font-size: 1rem;
+                letter-spacing: 1px;
+            }
+            .vote-average,
+            .language,
+            .date{
+                margin-top: .5rem;
+                font-size: .8rem;
+            }
+
+            span{
+                color: white;
+            }
+            .play-btn{
+                margin-top: .5rem;
+                background-color: $red-color;
+                color: white;
+                border: none;
+                padding: .5rem 1rem;
+                font-size: .8rem;
+                letter-spacing: 1px;
+                cursor: pointer;
+                outline: inherit;
+                @include flexCenter(flex-start);
+                img{
+                    width: 16px;
+                    margin-right: .3rem;
+                }
+            }
+        }
+    }
+}
+
+
+
+@media (min-width: 992px){
+    .search-bar-container{
+        margin: 0;
+
+        .search-bar{
+            background-color: transparent;
+            border-radius: 100px;
+        }
+
+        .search-bar::placeholder{
+            color: $white-color;
+            letter-spacing: 2px;
+        }
+
+        .search-btn{
+            background-color: transparent;
+            color: $white-color;
+        }
+    }
+
+    .searched{
+        margin-top: 0rem;
+    }
+}

@@ -1,0 +1,38 @@
+<div class="hero">
+    <app-navbar></app-navbar>
+    <div class="search-wrapper">
+        <app-search-bar></app-search-bar>
+    </div>
+    <swiper class="hero-slider" [config]="config">
+        <ng-template swiperSlide class="hero-slide">
+            <div class="slider-image-1" [routerLink]="['/movie', '398978']" >
+                <div class="slider-wrapper">
+                    <h1 class="slider-title" >The<br>Irishman</h1>
+                    <p class="slider-text" >Hitman Frank Sheeran looks back at the secrets he kept as a loyal member of the Bufalino crime family in this acclaimed film from Martin Scorsese.</p>
+                    <button [routerLink]="['/movie', '398978']" class="slider-btn" > <img class="play-icon" src="../../../../assets/img/play.svg" alt="play icon"> PLAY</button>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template swiperSlide  class="hero-slide" >
+            <div class="slider-image-2"  [routerLink]="['/movie', '497698']">
+               <div class="slider-wrapper">
+                    <h1 class="slider-title" >Black<br>Widow</h1>
+                    <p class="slider-text" >Natasha Romanoff confronts the darker parts of her ledger when a dangerous conspiracy with ties to her past arises.</p>
+                    <button [routerLink]="['/movie', '497698']" class="slider-btn" > <img class="play-icon" src="../../../../assets/img/play.svg" alt="play icon"> PLAY</button>
+                </div>
+            </div>
+        </ng-template>
+        <ng-template swiperSlide  class="hero-slide"  >
+            <div class="slider-image-3" [routerLink]="['/movie', '335983']" >
+               <div class="slider-wrapper">
+                    <h1 class="slider-title" >Venom</h1>
+                    <p  class="slider-text" >A failed reporter is bonded to an alien entity, one of many symbiotes who have invaded Earth. But the being takes a liking to Earth and decides to protect it.</p>
+                    <button [routerLink]="['/movie', '335983']" class="slider-btn" > <img class="play-icon" src="../../../../assets/img/play.svg" alt="play icon"> PLAY</button>
+               </div>
+            </div>
+        </ng-template>
+    </swiper>
+
+</div>
+
+

@@ -1,0 +1,88 @@
+@import "../../../../assets/mystyle.scss";
+
+footer{
+    margin-top: 3rem;
+    padding: 3rem 1rem;
+    background-color: $red-color;
+
+    .wrap{
+        @include flexCenter(center);
+        flex-direction: column;
+        text-align: center;
+
+        .footer-logo{
+           h1{
+            font-size: 1.5rem;
+            letter-spacing: 3px;
+           }
+        }
+
+        .footer-navbar{
+            li{
+                list-style-type: none;
+                margin-top: 1rem;
+                .footer-link{
+                    color: $white-color;
+                    text-decoration: none;
+                    font-weight: 300;
+                    font-size: .9rem;
+                }
+            }
+
+        }
+
+    
+    }
+
+    .footer-text{
+        text-align: center;
+        font-size: .7rem;
+        line-height: 1.5;
+        max-width: 320px;
+        margin: 1rem auto 0 auto;
+        font-weight: 300;
+    }
+    
+}
+
+
+@media (min-width: 992px){
+    footer{
+        .wrap{
+            max-width: 800px;
+            margin: 0 auto;
+            flex-direction: row;
+            justify-content: space-between;
+
+            .footer-navbar{
+                @include flexCenter(flex-start);
+                li{
+                    margin-top: 0;
+                    margin-left: 2rem;
+                }
+            }
+        }
+
+        .footer-text{
+            max-width: 600px;
+        }
+    
+    }
+}
+
+
+@media (min-width: 1100px){
+    footer{
+        .wrap{
+            max-width: 1000px;
+        }
+    }
+}
+
+@media (min-width: 1200px){
+    footer{
+        .wrap{
+            max-width: 1100px;
+        }
+    }
+}

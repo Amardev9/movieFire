@@ -1,0 +1,196 @@
+@import "../../../../assets/mystyle.scss";
+
+.movies-section {
+    margin: 1rem;
+}
+
+
+
+.filter-btn{
+    background-color: $red-color;
+	color: white;
+	border: none;
+	padding: .5rem;
+	cursor: pointer;
+	outline: inherit;
+    font-weight: 600;
+    font-size: .7rem;
+    letter-spacing: 3px;
+}
+
+.filter-overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow-y: scroll;
+    bottom: 0;
+    background-color: $dark-color;
+    transform: translateX(-100%);
+    transition: all .2s ease-in-out;
+
+    .filter-close{ 
+        padding: .5rem 1rem;
+        float: right;
+        i{
+            color: $red-color;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.filter-container{
+    margin: 2rem 1rem;
+
+    .option-container{
+        margin-top: 1rem;
+        .option-title{
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: white;
+        }
+
+        .filter-option{
+            margin-top: .5rem;
+            
+            &:hover{
+                color: white;
+                cursor: pointer;
+            }
+        }
+
+
+
+        
+    }
+
+}
+
+.active{
+    border-left: 4px solid $red-color;
+    color: white;
+    padding-left: .1rem;
+}
+
+.filter-overlay.open{
+    transform: translateX(0%);
+}
+
+
+
+
+.movies-container{
+    margin-top: 1rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(92px, 1fr));
+    gap: 1rem;
+    flex: wrap;
+
+    .image-container{
+        cursor: pointer;
+        width: 92px;
+        height: 138px;
+        background: linear-gradient(90deg,
+        #15202B 30%,
+        lighten(#15202B, 7%) 38%,
+        lighten(#15202B, 7%) 40%,
+        #15202B 48%);
+        background-size: 200% 100%;
+        background-position:  100% 0;
+        animation: load 2s infinite;
+
+        .m-img{
+            height: 100%;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+}
+
+@keyframes load{
+    100%{
+        background-position: -100% 0;
+    }
+}
+
+.load-more-container{
+    text-align: center;
+    margin: 2rem 0;
+
+    .spinner-animation-2{
+        padding: 2rem 0;
+        @include flexCenter(center);
+    }
+}
+.load-more{
+    padding: .5rem 1rem;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+    background-color: $red-color;
+	color: inherit;
+	border: none;
+	cursor: pointer;
+	outline: inherit;
+}
+
+.spinner-animation{
+    @include flexCenter(center);
+    height: 100vh;
+}
+
+@media (min-width: 768px) { 
+
+    .movies-container{
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        
+        .image-container{
+            width: 120px;
+            height: 180px;
+        }
+    }
+
+}
+
+@media (min-width: 992px){
+    .movies-section{
+        max-width: 800px;
+        margin: 4rem auto 0 auto;
+    }
+    .filter-overlay{
+        width: 20%;
+        z-index: 99;
+    }
+
+    .movies-container{
+        grid-template-columns: repeat(auto-fill, minmax(154px, 1fr));
+        
+        
+    
+        .image-container{
+            width: 154px;
+            height: 231px;
+        }
+    }
+}
+
+@media (min-width: 1100px){
+    .movies-section{
+        max-width: 1000px;
+    }
+
+    .filter-overlay{
+        width: 15%;
+    }
+    
+}
+
+@media (min-width: 1200px){
+    .movies-section{
+        max-width: 1100px;
+    }
+
+}
