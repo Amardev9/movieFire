@@ -6,13 +6,14 @@
 
 ## General info
 In my free time, I like to watch movies, so I decided to make a movie app that will allow me to find the movie I want to watch. The application has search, filter (popular, top-rated, year, genre), movie review, etc.
+Overall, it was fun to do this project and I learned a lot.
 	
 ## Technologies
 Project is created with:
 * Angular 12
 * HTML5
-* CSS3
-* TypeScript 
+* SCSS
+* Javascript/TypeScript 
 * SwiperJS
 	
 ## Demo
