@@ -19,8 +19,7 @@ Project is created with:
 Link : https://movie-fire.netlify.app
 
 ## Images
-![alt text](https://github.com/Amardev9/assets/blob/master/movie-fire/desktop-hero.PNG)
 
-| #1 | #2 |
+| Desktop Home Page | Mobile Home Page |
 | :---: | :---:
-| ![alt text](https://github.com/Amardev9/assets/blob/master/movie-fire/desktop-hero.PNG) | ![alt text](https://github.com/Amardev9/assets/blob/master/movie-fire/desktop-hero.PNG) |
+| ![alt text](https://github.com/Amardev9/assets/blob/master/movie-fire/desktop-hero.PNG) | ![alt text](https://github.com/Amardev9/assets/blob/master/movie-fire/mobile-hero.PNG) |
