@@ -1,7 +1,7 @@
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
-* [Live Demo](#Live Demo)
+* [Demo](#Demo)
 
 ## General info
 In my free time, I like to watch movies, so I decided to make a movie app that will allow me to find the movie I want to watch. The application has search, filter (popular, top-rated, year, genre), movie review, etc.
@@ -14,4 +14,4 @@ Project is created with:
 * TypeScript 
 * SwiperJS
 	
-## Live Demo
+## Demo
