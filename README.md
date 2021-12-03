@@ -23,5 +23,5 @@ Link : https://movie-fire.netlify.app
 | Desktop Home Page | Mobile Home Page |
 | :---: | :---:
 | ![alt text](https://github.com/Amardev9/assets/blob/master/movie-fire/desktop-hero.PNG) | ![alt text](https://github.com/Amardev9/assets/blob/master/movie-fire/mobile-hero.PNG)|
-:---: | :---:
+Desktop Movies Page | Mobile Movies Page
 | ![alt text](https://github.com/Amardev9/assets/blob/master/movie-fire/desktop-hero.PNG) | ![alt text](https://github.com/Amardev9/assets/blob/master/movie-fire/mobile-hero.PNG)|
