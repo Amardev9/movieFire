@@ -21,6 +21,6 @@ Link : https://movie-fire.netlify.app
 ## Images
 ![alt text](https://github.com/Amardev9/assets/blob/master/movie-fire/desktop-hero.PNG)
 
-| Attempt | #1 | #2 |
-| :---: | :---: | :---: |
-| Seconds | 301 | 283 |
+| #1 | #2 |
+| :---: | :---:
+| ![alt text](https://github.com/Amardev9/assets/blob/master/movie-fire/desktop-hero.PNG) | ![alt text](https://github.com/Amardev9/assets/blob/master/movie-fire/desktop-hero.PNG) |
